@@ -21,12 +21,37 @@ app.get('/data', (req, res)=>{
   res.json(data);
 });
 
-app.put('/update', (req, res)=>{
-
+app.put('/update/:id', (req, res)=>{
+  const {id} = req.params;
+  const updateId=Number(req.query.id);
+  const newName=req.query.name;
+  if(Number(id)===updateId){
+    const index=data.findIndex(data=>data.id===updateId);
+    if(index!=-1){
+      data[index].name=newName||data[index].name;
+      res.send("Data updated");
+    }else{
+      res.send("Data not found");
+    }
+  }else{
+    res.send("Invalid request");
+  }
 });
 
 app.delete('/delete', (req, res)=>{
-
+  const {id} = req.params;
+  const updateId=Number(req.query.id);
+  const newName=req.query.name;
+  if(Number(id)===updateId){
+    const index=data.findIndex(data=>data.id===updateId);
+    if(index!=-1){
+      res.send("Data deleted");
+    }else{
+      res.send("Data not found");
+    }
+  }else{
+    res.send("Invalid request");
+  }
 });
 
 app.listen(port, () => {
