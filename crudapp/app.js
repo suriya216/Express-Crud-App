@@ -34,10 +34,16 @@ app.get('/update/:id', (req, res)=>{
   }else{
     res.send("Invalid id");
   }
+});
+
+app.get('/search/:id', (req, res)=>{
+  const id=req.params.id;
+  let result=data.filter(d => d.id == id);
+  res.send(result);
 })
 
 app.get('/data', (req, res)=>{
-  res.json(data);
+  res.send(data);
 });
 
 app.listen(port, () => {
