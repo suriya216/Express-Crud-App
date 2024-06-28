@@ -30,7 +30,7 @@ A simple CRUD application built with Express.js.
      npm strat
      ```
 
-2. The server will be running on http://localhost:3000.
+2. The server will be running on http://localhost:3000/submit.
 
 ##Endpoints
 
