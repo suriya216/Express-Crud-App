@@ -24,8 +24,9 @@ app.get('/delete/:id', (req, res)=>{
   res.send(data);
 });
 
-app.update('/update/:id', (req, res)=>{
+app.get('/update/:id', (req, res)=>{
   const id=req.params.id;
+  const newName="karthi";
   const index=data.findIndex(d=>d.id===id);
   if(index!=-1){
     data[index].name=newName;
