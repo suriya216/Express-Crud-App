@@ -1,20 +1,34 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+const port = 3000;
 
-let dataSet = [
-  {"id":1, "name":"aadhithya"},
-  {"id":2, "name":"suriya"},
-  {"id":3, "name":"gokul"},
-  {"id":4, "name":"rohit"},
-  {"id":5, "name":"sankar"},
-  {"id":6, "name":"vignesh"},
-  {"id":7, "name":"keerthi"}
-];
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/data", (req, res)=>{
-  let result=dataSet;
-  res.json(result);
+app.use(express.static('public'));
+
+let data=[];
+
+app.post('/submit', (req, res) => {
+  const { id, name } = req.body;
+  const newData={id, name};
+  data.push(newData);
+  res.send(JSON.stringify(newData));
 });
 
-app.listen(3000);
+app.get('/data', (req, res)=>{
+  res.json(data);
+});
+
+app.put('/update', (req, res)=>{
+
+});
+
+app.delete('/delete', (req, res)=>{
+
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});

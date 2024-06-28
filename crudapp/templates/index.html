@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td,
+        th {
+            padding: 2px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="http://localhost:3000/submit" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="id">Id</label>
+                    </td>
+                    <td>
+                        <input type="text" id="id" name="id">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="name">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>
