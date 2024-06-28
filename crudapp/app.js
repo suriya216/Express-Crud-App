@@ -40,10 +40,10 @@ app.put('/update/:id', (req, res)=>{
 
 app.delete('/delete', (req, res)=>{
   const {id} = req.params;
-  const updateId=Number(req.query.id);
+  const deleteId=Number(req.query.id);
   const newName=req.query.name;
   if(Number(id)===updateId){
-    const index=data.findIndex(data=>data.id===updateId);
+    const index=data.findIndex(data=>data.id===deleteId);
     if(index!=-1){
       res.send("Data deleted");
     }else{
