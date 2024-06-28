@@ -14,7 +14,7 @@ app.post('/submit', (req, res) => {
   const { id, name } = req.body;
   const newData={id, name};
   data.push(newData);
-  res.send(JSON.stringify(newData));
+  res.send(data);
 });
 
 
